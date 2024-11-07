@@ -1,17 +1,26 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import DashBoard from "../components/DashBoard";
+import PokemonList from "../components/PokemonList";
+import { useState } from "react";
+
 
 const Dex = () => {
   const navigate = useNavigate();
+  const [pokemon, setPokemon] = useState([]); 
 
   return (
-    <div>
-      <h1>Dex</h1>
-      <button onClick={() => {
-        navigate("/")
-      }} >Home</button>
-      </div>
-  )
-}
+    <>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Home
+      </button>
+      <DashBoard pokemon={pokemon} setPokemon={setPokemon} />
+      <PokemonList pokemon={pokemon} setPokemon={setPokemon} />
+    </>
+  );
+};
 
-export default Dex
+export default Dex;

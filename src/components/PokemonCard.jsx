@@ -1,21 +1,12 @@
-function PokeCard(props) {
+function PokeCard({ mon }) {
   return (
-
-    <div key={props.mon.id}>
-      <img src={props.mon.img_url} alt="" />
-      <p>No. {props.mon.id}</p>
-      <p>{props.mon.korean_name}</p>
-      <button onClick={AddPokemon}>내 꼬</button>
+    <div key={mon.id}>
+      <img src={mon.img_url} alt={mon.korean_name} />
+      <p>No. {mon.id}</p>
+      <p>{mon.korean_name}</p>
     </div>
   );
 }
 
-const PokemonCard = () => {
-  return (
-    <>
-      <p></p>
-    </>
-  );
-};
 
 export default PokeCard;

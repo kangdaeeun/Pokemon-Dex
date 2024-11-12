@@ -19,7 +19,6 @@ const DashBoardCard = styled.div`
   justify-content: center;
   margin: 10px;
   text-align: center;
-  border: 2px solid orange;
 `;
 
 const DefaultImg = styled.img`

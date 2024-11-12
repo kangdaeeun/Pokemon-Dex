@@ -8,5 +8,4 @@ function PokeCard({ mon }) {
   );
 }
 
-
 export default PokeCard;

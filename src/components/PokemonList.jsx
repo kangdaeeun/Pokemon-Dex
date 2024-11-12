@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import PokeCard from "./PokemonCard";
-import { useState } from "react";
-import DashBoard from "./DashBoard";
 import { MOCK_DATA } from "../shared/MOCK_DATA";
+import { useNavigate } from "react-router-dom";
 
 const PokemonCardBox = styled.div`
   display: flex;
@@ -23,20 +22,24 @@ const PokeCardStyle = styled.div`
   text-align: center;
 `;
 
-const PokemonList = ({AddPokemon}) => {
+const PokemonList = ({AddPokemon, }) => {
+  const navigate = useNavigate();
   const mons = MOCK_DATA;
 
   return (
     <div>
-        {/* <DashBoard
-          mon={selectedPokemon}
-          setSelectedPokemon={setSelectedPokemon}
-        /> */}
       <PokemonCardBox>
         {mons.map((mon) => (
           <PokeCardStyle key={mon.id}>
             <PokeCard key={mon.id} mon={mon} />
-            <button onClick={(e) => AddPokemon(e, mon.id)}>내 꼬</button>
+            <button onClick={(e) => AddPokemon(e, mon)}>내 꼬</button>
+            <button
+        onClick={() => {
+          navigate(`/Dex/${mon.id}`);
+        }}
+      >
+        상세페이지
+      </button>
           </PokeCardStyle>
         ))}
       </PokemonCardBox>

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import Dex from "../pages/Dex";
+import PokemonDetail from "../components/PokemonDetail";
 
 const Router = () => {
   return (
@@ -8,6 +9,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Dex" element={<Dex />} />
+        <Route path="/Dex/:id" element={<PokemonDetail />} />
       </Routes>
     </BrowserRouter>
   );

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import PokeballImage from "../Images/1.png";
 import { useContext } from "react";
 import { PokeContext } from "./PokemonContext";
+import { useNavigate } from "react-router-dom";
 
 const DashBoardBox = styled.div`
   display: flex;
@@ -40,32 +41,34 @@ const DivStyle = styled.div`
 
 const DashBoard = () => {
   const { selectedPokemon, removePokemon } = useContext(PokeContext);
+  const navigate = useNavigate();
+  const goDetail = (mon) => {
+    navigate(`/Dex/${mon.id}`);
+  };
   return (
     <DashBoardBox>
       <h1>넌 내 꺼야!!</h1>
       <DivStyle>
         {Array(6)
           .fill()
-          .map((_, id) => (
-            <DashBoardCard key={id}>
-              {selectedPokemon[id] ? (
-                <>
-                  <img
-                    src={selectedPokemon[id].img_url}
-                    alt={selectedPokemon[id].korean_name}
-                  />
-                  <p>{selectedPokemon[id].korean_name}</p>
-                  <DeleteButton
-                    onClick={() => removePokemon(selectedPokemon[id].id)}
-                  >
-                    삭제
-                  </DeleteButton>
-                </>
-              ) : (
-                <DefaultImg src={PokeballImage} alt="포켓볼" />
-              )}
-            </DashBoardCard>
-          ))}
+          .map((_, index) => {
+            const myCard = selectedPokemon[index];
+            return (
+              <DashBoardCard key={index} onClick={() => goDetail(myCard.id)}>
+                {myCard ? (
+                  <>
+                    <img src={myCard.img_url} alt={myCard.korean_name} />
+                    <p>{myCard.korean_name}</p>
+                    <DeleteButton onClick={(e) => removePokemon(e, myCard.id)}>
+                      삭제
+                    </DeleteButton>
+                  </>
+                ) : (
+                  <DefaultImg src={PokeballImage} alt="포켓볼" />
+                )}
+              </DashBoardCard>
+            );
+          })}
       </DivStyle>
     </DashBoardBox>
   );

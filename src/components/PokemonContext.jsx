@@ -22,7 +22,8 @@ const PokemonProvider = ({ children }) => {
     }
   };
 
-  const removePokemon = (id) => {
+  const removePokemon = (e, id) => {
+    e.stopPropagation();
     setSelectedPokemon((prevSelected) =>
       prevSelected.filter((prevPokemon) => prevPokemon.id !== id)
     );

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import PokeballImage from "../Images/1.png";
+import { useContext } from "react";
+import { PokeContext } from "./PokemonContext";
 
 const DashBoardBox = styled.div`
   display: flex;
@@ -36,7 +38,8 @@ const DivStyle = styled.div`
   align-items: center;
 `;
 
-const DashBoard = ({ selectedPokemon , removePokemon }) => {
+const DashBoard = () => {
+  const { selectedPokemon, removePokemon } = useContext(PokeContext);
   return (
     <DashBoardBox>
       <h1>넌 내 꺼야!!</h1>
@@ -47,9 +50,14 @@ const DashBoard = ({ selectedPokemon , removePokemon }) => {
             <DashBoardCard key={id}>
               {selectedPokemon[id] ? (
                 <>
-                  <img src={selectedPokemon[id].img_url} alt={selectedPokemon[id].korean_name} />
+                  <img
+                    src={selectedPokemon[id].img_url}
+                    alt={selectedPokemon[id].korean_name}
+                  />
                   <p>{selectedPokemon[id].korean_name}</p>
-                  <DeleteButton onClick={() => removePokemon(selectedPokemon[id].id)}>
+                  <DeleteButton
+                    onClick={() => removePokemon(selectedPokemon[id].id)}
+                  >
                     삭제
                   </DeleteButton>
                 </>

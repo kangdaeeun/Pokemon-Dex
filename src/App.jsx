@@ -1,8 +1,14 @@
-import Router from './shared/Router';
+import { PokemonProvider } from "./components/PokemonContext";
+import Router from "./shared/Router";
 
 
 const App = () => {
-  return <Router />;
-}
+  
+  return (
+    <PokemonProvider>
+      <Router />
+    </PokemonProvider>
+  );
+};
 
-export default App
+export default App;

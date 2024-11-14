@@ -1,8 +1,31 @@
-# React + Vite
+# Pokemon Dex
+React 숙련주차 개인 프로젝트 포켓몬 도감 만들기!!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 필수 구현사항
+1. Git 브랜치 전략 사용하기
+2. 페이지 라우팅 구현하기
+3. 도감 페이지 구성하기
+4. 디테일 페이지
+5. 알림 기능 구현
+6. 스타일링
 
-Currently, two official plugins are available:
+## 선택 구현사항
+1. Redux Toolkit으로 리팩터링하기
+2. 디테일 페이지에 '추가' 버튼 추가하기
+3. 리스트 페이지의 데이터를 유지시키기
+4. UI 라이브러리 활용하기
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 자가진단
+필수 구현사항
+1. Git 브랜치 전략 사용하기  o
+2. 페이지 라우팅 구현하기  o
+3. 도감 페이지 구성하기  o
+4. 디테일 페이지  o
+5. 알림 기능 구현  o
+6. 스타일링  x
+
+선택 구현사항
+1. Redux Toolkit으로 리팩터링하기  x
+2. 디테일 페이지에 '추가' 버튼 추가하기  x
+3. 리스트 페이지의 데이터를 유지시키기  o
+4. UI 라이브러리 활용하기  x

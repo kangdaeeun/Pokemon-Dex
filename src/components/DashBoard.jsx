@@ -54,7 +54,7 @@ const DashBoard = () => {
           .map((_, index) => {
             const myCard = selectedPokemon[index];
             return (
-              <DashBoardCard key={index} onClick={() => goDetail(myCard.id)}>
+              <DashBoardCard key={index} onClick={() => goDetail(myCard)}>
                 {myCard ? (
                   <>
                     <img src={myCard.img_url} alt={myCard.korean_name} />

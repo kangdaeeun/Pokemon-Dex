@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { usePokemon } from "../context/PokemonContext";
 
 const PokemonListWrapper = styled.div`
   display: flex;
@@ -7,7 +8,11 @@ const PokemonListWrapper = styled.div`
   justify-content: center;
 `;
 
-export default function Dashboard({ selectedPokemons, removePokemon }) {
+export default function Dashboard() {
+  const { selectedPokemons, removePokemon } = usePokemon();
+  // const { selectedPokemons = [], removePokemon } = usePokemon() || {};
+
+
   return (
     <div>
       <h2>Selected Pokemons!</h2>

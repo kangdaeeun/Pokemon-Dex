@@ -1,6 +1,7 @@
 import React from "react";
-import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
+import PokemonCard from "./PokemonCard";
+import MOCK_DATA from "../mock";
 
 const PokemonListWrapper = styled.div`
   display: flex;
@@ -9,18 +10,12 @@ const PokemonListWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-export default function PokemonList({ pokemonData, addPokemon }) {
+export default function PokemonList() {
   return (
     <div>
       <h2>Pokemons List!</h2>
       <PokemonListWrapper>
-        {pokemonData.map((pokemon) => (
-          <PokemonCard
-            pokemon={pokemon}
-            addPokemon={addPokemon}
-            key={pokemon.id}
-          />
-        ))}
+        {MOCK_DATA.map((pokemon) => <PokemonCard pokemon={pokemon} key={pokemon.id} />)}
       </PokemonListWrapper>
     </div>
   );
